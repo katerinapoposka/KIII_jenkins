@@ -1,4 +1,7 @@
 node {
+    when {
+    branch 'devOps'
+    }
     def app
     stage('Clone repository') {
         checkout scm
