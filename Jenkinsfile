@@ -1,12 +1,12 @@
 node {
     def app
-    when {
-    branch 'devOps'
-    }
     stage('Clone repository') {
         checkout scm
     }
     stage('Build image') {
+       when {
+        branch 'dev'
+       }
        app = docker.build("katerinapoposka/kiii_jenkins")
     }
     stage('Push image') {   
